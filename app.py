@@ -7,18 +7,18 @@ import pandas as pd
 import pickle
 
 ## Loading the trained model
-model = load_model('/Users/shubhamgangwar/Documents/Python/AI_ML Krish Nayak/AI_ML Krish/Machine Learning/Deep Learning/ANN Project/model.h5')
+model = load_model('model.h5')
 #print('MODEL Loaded Succesfully')
 
 ## Load  the encoders and scaler
 
-with open('/Users/shubhamgangwar/Documents/Python/AI_ML Krish Nayak/AI_ML Krish/Machine Learning/Deep Learning/ANN Project/label_encoder_gender.pkl', 'rb') as file:
+with open('label_encoder_gender.pkl', 'rb') as file:
     label_encoder_gender = pickle.load(file)
 
-with open('/Users/shubhamgangwar/Documents/Python/AI_ML Krish Nayak/AI_ML Krish/Machine Learning/Deep Learning/ANN Project/onehot_encoder_geo.pkl', 'rb') as file:
+with open('onehot_encoder_geo.pkl', 'rb') as file:
     onehot_encoder_geo = pickle.load(file)
 
-with open('/Users/shubhamgangwar/Documents/Python/AI_ML Krish Nayak/AI_ML Krish/Machine Learning/Deep Learning/ANN Project/scaler.pkl', 'rb') as file:
+with open('scaler.pkl', 'rb') as file:
     scaler = pickle.load(file)
 
 ##streamlit app
