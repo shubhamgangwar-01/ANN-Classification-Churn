@@ -1,25 +1,25 @@
 import streamlit as st
 import numpy as np
-import tensorflow as tf
-from tensorflow.keras.models import load_model
+#import tensorflow as tf
+#from tensorflow.keras.models import load_model
 from sklearn.preprocessing import StandardScaler, LabelEncoder, OneHotEncoder
 import pandas as pd
 import pickle
 
 ## Loading the trained model
-model = load_model('/Users/shubhamgangwar/Documents/Python/AI_ML Krish Nayak/AI_ML Krish/Machine Learning/Deep Learning/ANN Project/model.h5')
-print('MODEL Loaded Succesfully')
+# model = load_model('/Users/shubhamgangwar/Documents/Python/AI_ML Krish Nayak/AI_ML Krish/Machine Learning/Deep Learning/ANN Project/model.h5')
+# print('MODEL Loaded Succesfully')
 
-## Load  the encoders and scaler
+# ## Load  the encoders and scaler
 
-with open('/Users/shubhamgangwar/Documents/Python/AI_ML Krish Nayak/AI_ML Krish/Machine Learning/Deep Learning/ANN Project/label_encoder_gender.pkl', 'rb') as file:
-    label_encoder_gender = pickle.load(file)
+# with open('/Users/shubhamgangwar/Documents/Python/AI_ML Krish Nayak/AI_ML Krish/Machine Learning/Deep Learning/ANN Project/label_encoder_gender.pkl', 'rb') as file:
+#     label_encoder_gender = pickle.load(file)
 
-with open('/Users/shubhamgangwar/Documents/Python/AI_ML Krish Nayak/AI_ML Krish/Machine Learning/Deep Learning/ANN Project/onehot_encoder_geo.pkl', 'rb') as file:
-    onehot_encoder_geo = pickle.load(file)
+# with open('/Users/shubhamgangwar/Documents/Python/AI_ML Krish Nayak/AI_ML Krish/Machine Learning/Deep Learning/ANN Project/onehot_encoder_geo.pkl', 'rb') as file:
+#     onehot_encoder_geo = pickle.load(file)
 
-with open('/Users/shubhamgangwar/Documents/Python/AI_ML Krish Nayak/AI_ML Krish/Machine Learning/Deep Learning/ANN Project/scaler.pkl', 'rb') as file:
-    scaler = pickle.load(file)
+# with open('/Users/shubhamgangwar/Documents/Python/AI_ML Krish Nayak/AI_ML Krish/Machine Learning/Deep Learning/ANN Project/scaler.pkl', 'rb') as file:
+#     scaler = pickle.load(file)
 
 ##streamlit app
 st.title('Customer Churn Prediction')
@@ -61,15 +61,15 @@ input_data = pd.concat([input_data.reset_index(drop=True), geo_encoded_df], axis
 input_data_scaled = scaler.transform(input_data)
 
 ## Predict Churn
-prediction = model.predict(input_data_scaled)
-pred_probablily = prediction[0][0]
+#prediction = model.predict(input_data_scaled)
+#pred_probablily = prediction[0][0]
 
-st.write(f'Churn Probability: {pred_probablily:.2f}')
+#st.write(f'Churn Probability: {pred_probablily:.2f}')
 
-if pred_probablily > 0.5:
-    st.write('The customer is likely to churn')
-else:
-    st.write('The customer is not likely to churn')
+# if pred_probablily > 0.5:
+#     st.write('The customer is likely to churn')
+# else:
+#     st.write('The customer is not likely to churn')
 
 
 
